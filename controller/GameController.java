@@ -1,8 +1,11 @@
 package source.controller;
 
+import java.util.ArrayList;
+
 import source.model.Poor;
 import source.model.store.StoreName;
 import source.model.store.StoreService;
+import source.model.product.*;;
 
 public class GameController {
     private Poor poor;
@@ -23,5 +26,17 @@ public class GameController {
 
     public void getMoney(int colleagueIndex){
         poor.receiveMoney(colleagueIndex);
+    }
+
+    public ArrayList<Item> getItemStoreItems(){
+        return (ArrayList<Item>) storeService.getProducts(StoreName.Item);
+    }
+
+    public ArrayList<Colleague> getColleagueStoreItems(){
+        return (ArrayList<Colleague>) storeService.getProducts(StoreName.Colleague);
+    }
+
+    public int getHaveMoney(){
+        return poor.getMoney();
     }
 }

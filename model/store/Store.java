@@ -11,4 +11,5 @@ public abstract class Store<T extends Product> {
 
     public abstract boolean sellProduct(int productIndex, Poor poor);
     public abstract void addProducts(List<T> product);
+    public abstract ArrayList<T> getProducts();
 }

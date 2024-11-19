@@ -8,12 +8,16 @@ import source.model.product.Product;
 
 public class Poor {
 	private int totalMoney; // 소지한 돈
-	private int beggedMoney; // 구걸 1회당 얻는 돈
-	private ArrayList<Item> itemList;
-	private ArrayList<Colleague> colleagueList;
+	private int beggedMoney = 1000; // 구걸 1회당 얻는 돈
+	private ArrayList<Item> itemList = new ArrayList<>();
+	private ArrayList<Colleague> colleagueList = new ArrayList<>();
 
 	public void beg() {
 		// 구걸금액+아이템 increaseMoney
+		if(itemList.size() == 0){
+			totalMoney += beggedMoney;
+			return;
+		}
 		totalMoney += beggedMoney + itemList.stream().mapToInt(Item::getIncreaseMoney).sum();
 	}
 

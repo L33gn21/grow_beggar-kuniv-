@@ -21,7 +21,7 @@ public class ColleagueStore extends Store<Colleague>{
             return false; // 잘못된 인덱스
         }
         Colleague colleague = colleagueList.get(productIndex);
-
+        colleague.init();
         // 돈이 충분한지 확인
         if (poor.getMoney() >= colleague.getPrice()) {
             poor.reduceMoney(colleague.getPrice()); // 돈 차감
@@ -35,6 +35,11 @@ public class ColleagueStore extends Store<Colleague>{
     @Override
     public void addProducts(List<Colleague> products) {
         colleagueList.addAll(products);//동료 목록 추가
+    }
+
+    @Override
+    public ArrayList<Colleague> getProducts() {
+        return colleagueList;
     }
 }
 

@@ -1,6 +1,7 @@
 package source.model.product;
 
 import java.time.LocalDateTime;
+import java.util.Scanner;
 
 import source.model.Poor;
 
@@ -8,6 +9,16 @@ public class Colleague extends Product {
 	private int earningMoney; // 초당 얻는 돈
 	private LocalDateTime lastEarnTime;
 	private Poor poor;
+
+	public void read(Scanner filein) {
+		this.name = filein.next();
+        this.price = filein.nextInt();
+        this.earningMoney = filein.nextInt();
+	}
+
+	public void init(){
+		this.lastEarnTime = LocalDateTime.now();
+	}
 
 	public int giveMoney() {
 		// 현재 시간 가져오기

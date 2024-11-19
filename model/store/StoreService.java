@@ -1,5 +1,6 @@
 package source.model.store;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import source.model.Poor;
@@ -22,5 +23,9 @@ public class StoreService {
     public boolean sellProduct(StoreName storeName, int productIndex, Poor poor){ //성공시 true, 실패시 false
         Store<? extends Product> store = stores.get(storeName);
         return store.sellProduct(productIndex, poor);
+    }
+
+    public ArrayList<? extends Product> getProducts(StoreName name){
+        return stores.get(name).getProducts();
     }
 }

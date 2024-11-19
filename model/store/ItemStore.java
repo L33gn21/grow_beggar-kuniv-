@@ -38,4 +38,11 @@ public class ItemStore extends Store<Item> {
         // 아이템 목록 추가
         itemList.addAll(products);
     }
+
+    @Override
+    public ArrayList<Item> getProducts() {
+        return itemList;
+    }
+
+    
 }
